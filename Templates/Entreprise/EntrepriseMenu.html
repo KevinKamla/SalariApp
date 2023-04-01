@@ -1,10 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block contenu %}
+
+        <!-- ================================== DEBUT DU MAIN ========================================  -->
+        <main>
+           <div class="insi" style="text-align:center">
+
+               <div class="MEA" style="height:600px; width:205px;">
+                   <a href="{% url 'creerEntre'  %} " >
+                       <div style="height:600px; width:205px;">
+                           <h2 style="position:relative; left:-30px; top:220px;">Renseigner <br>votre<br>entreprise</h2>
+                       </div>
+                   </a>
+               </div>
+
+               <div class="MEL" style="height:600px; width:205px; position:absolute; left:490px;">
+                   <a href="{% url 'infoEntre'  %} " >
+                       <div style="height:600px; width:205px;">
+                            <h2 style="position:relative; left:-30px; top:220px;">Afficher les<br>informations de <br> l'entreprise</h2>
+                       </div>
+                   </a>
+               </div>
+
+               <div class="MEM" style="height:600px; width:205px; position:absolute; left:730px;">
+                   <a href="{% url 'AjoutA'  %} " >
+                       <div style="height:600px; width:205px;">
+                            <h2 style="position:relative; left:-30px; top:200px;">Ajouter les <br>adresses de <br> l'entreprise</h2>
+                       </div>
+                   </a>
+               </div>
+
+
+
+
+
+
+           </div>
+
+        </main>
+
+        <!-- ======================================= FIN MAIN ======================================== -->
+
+
+ {% endblock %}
+

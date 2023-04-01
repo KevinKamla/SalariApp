@@ -1,0 +1,52 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block contenu %}
+{% csrf_token %}
+<main>
+	<div class="recent-oders">
+    	<form method="POST">
+                {% csrf_token %}
+	                <fieldset style="width:25%">
+		            <legend>Ajout d'indemnités</legend><div>
+		                 <span>
+	                            <label for="Intitulé">Type de l'indemnité</label>
+                         </span>
+                         <span class="myfirstclass">
+                            {{monformIndemnites.type}}
+		                 </span>
+		            </div>
+		            <div>
+		                 <span>
+	                            <label for="Intitulé">Intitulé</label>
+                         </span>
+                         <span class="myfirstclass">
+                            {{monformIndemnites.intitule}}
+		                 </span>
+		            </div>
+					<div>
+		                 <span>
+	                            <label for="Intitulé">Valeur</label>
+                         </span>
+                         <span class="myfirstclass">
+                            {{monformIndemnites.valeur}}
+		                 </span>
+		            </div>
+		            <div>
+                        <button type="submit" >OK</button>
+
+						{% for message in messages %}
+							<p>{{message}}</p>
+						{% endfor %}
+		            </div>
+	             </fieldset>
+	            </form>
+	</div>
+</main>
+
+
+
+
+
+ {% endblock %}

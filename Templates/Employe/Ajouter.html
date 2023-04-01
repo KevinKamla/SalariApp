@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+        <form method="POST" >
+
+              {% csrf_token %}
+                <div class="u-form-group u-form-name" style="color : black">
+                  <label for="name-44a6" class="u-form-control-hidden u-label"></label>Nom de l'employé
+                  {{ monformEmploye.nomEmploye }}
+                </div>
+
+                <div class="u-form-group u-form-name" style="color : black">
+                  <label for="name-44a6" class="u-form-control-hidden u-label"></label>Prenom de l'employé
+                  {{ monformEmploye.prenomEmploye }}
+                </div>
+
+                 <div class="u-form-group u-form-name" style="color : black">
+                  <label for="name-44a6" class="u-form-control-hidden u-label"></label>Date de naissance
+                   {{ monformEmploye.dateNaissance }}
+                </div>
+
+                <div class="u-form-group u-form-name" style="color : black">
+                  <label for="name-44a6" class="u-form-control-hidden u-label"></label>Lieu de naissance
+                  {{ monformEmploye.lieuNaissance }}
+                </div>
+                <div class="u-form-group u-form-name" style="color : black">
+                  <label for="name-44a6" class="u-form-control-hidden u-label"></label>Sexe
+                  {{ monformEmploye.sexe }}
+                </div>
+
+                <div class="u-form-group u-form-group-2" style="color : black">
+                  <label for="text-ce54" class="u-form-control-hidden u-label"></label>Nationalité
+                  {{ monformEmploye.nationalite }}
+                </div>
+
+                 <div class="u-form-group u-form-group-2" style="color : black">
+                  <label for="text-ce54" class="u-form-control-hidden u-label"></label>Statut matrimonial
+                   {{ monformEmploye.statusMatrimonial }}
+                </div>
+
+                <div class="u-form-group u-form-group-2" style="color : black">
+                  <label for="text-ce54" class="u-form-control-hidden u-label"></label>Fonction de l'employé
+                  {{ monformEmploye.fonction }}
+                </div>
+
+                <div class="u-form-group u-form-group-2" style="color : black">
+                  <label for="text-ce54" class="u-form-control-hidden u-label"></label>Type du contrat
+                  {{ monformEmploye.typeContrat }}
+                </div>
+
+                <div class="u-form-group u-form-group-2" style="color : black">
+                  <label for="text-ce54" class="u-form-control-hidden u-label"></label>Date de recrutement
+                  {{ monformEmploye.dateRecrutement }}
+                </div>
+
+                <div class="u-form-group u-form-group-2" style="color : black">
+                  <label for="text-ce54" class="u-form-control-hidden u-label"></label>Date de fin d'emploie
+                  {{ monformEmploye.dateFin }}
+                </div>
+
+                <div class="u-form-group u-form-group-2" style="color : black">
+                  <label for="text-ce54" class="u-form-control-hidden u-label"></label>Salaire de base
+                  {{ monformEmploye.salaireBase }}
+                </div>
+
+                <div class="u-form-group u-form-group-2" style="color : black">
+                  <label for="text-ce54" class="u-form-control-hidden u-label"></label>Salaire net
+                  {{ monformEmploye.salaireNet }}
+                </div>
+
+                <span class="u-align-center u-form-group u-form-submit u-form-group-3">
+                  <a href="Dash" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-5 u-hover-custom-color-7 u-radius-50 u-text-body-alt-color u-text-hover-white u-btn-1 inscrire">Retour</a>
+                  <button type="submit" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-5 u-hover-custom-color-7 u-radius-50 u-text-body-alt-color u-text-hover-white u-btn-1 retour"><font color="white">Enregistrer</font></button>
+                </span>
+
+                <input type="hidden" value="" name="recaptchaResponse">
+        </form>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block contenu %}
+
+        <!-- ================================== DEBUT DU MAIN ========================================  -->
+        <main>
+
+             <div class="table-employe">
+
+                <h2>Ajout d'un employé</h2>
+
+                    <form method="POST" >
+
+                      {% csrf_token %}
+                   <label>Nom de l'employé</label>
+                  {{ monformEmploye.nomEmploye }}
+
+
+
+            </div>
+        </main>
+
+        <!-- ======================================= FIN MAIN ======================================== -->
+
+
+ {% endblock %}
+

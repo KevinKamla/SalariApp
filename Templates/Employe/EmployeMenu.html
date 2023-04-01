@@ -1,10 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block contenu %}
+
+        <!-- ================================== DEBUT DU MAIN ========================================  -->
+        <main>
+           <div class="insi" style="text-align:center">
+
+               <div class="MEA" style="height:600px; width:205px;">
+                   <a href="{% url 'CreerEmploye'  %} " >
+                       <div style="height:600px; width:205px;">
+                           <h2 style="position:relative; left:-30px; top:220px;">Ajouter un <br>employé</br></h2>
+                       </div>
+                   </a>
+               </div>
+
+               <div class="MEL" style="height:600px; width:205px; position:absolute; left:490px;">
+                   <a href="{% url 'InfoE'  %} " >
+                       <div style="height:600px; width:205px;">
+                            <h2 style="position:relative; left:-30px; top:220px;">Lister les <br>employés</br></h2>
+                       </div>
+                   </a>
+               </div>
+
+               <div class="MEM" style="height:600px; width:205px; position:absolute; left:730px;">
+                   <a href="{% url 'InfoE'  %} " >
+                       <div style="height:600px; width:205px;">
+                            <h2 style="position:relative; left:-30px; top:200px;">Mettre à jour les informations<br>d'un employé</br></h2>
+                       </div>
+                   </a>
+               </div>
+
+               <div class="MEE" style="height:600px; width:205px; position:absolute; left:970px;">
+                   <a href="{% url 'InfoE'  %} " >
+                       <div style="height:600px; width:205px;">
+                            <h2 style="position:relative; left:-30px; top:220px;">######### <br>dds</br></h2>
+                       </div>
+                   </a>
+               </div>
+
+
+
+
+
+
+           </div>
+
+        </main>
+
+        <!-- ======================================= FIN MAIN ======================================== -->
+
+
+ {% endblock %}
+

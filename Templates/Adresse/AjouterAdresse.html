@@ -1,10 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block contenu %}
+{% csrf_token %}
+<main>
+	<div class="recent-oders">
+		<h1>Renseigner les adresses de votre entreprise</h1>
+		===============================================================================================
+		<hr>
+    	<form method="POST" action="">
+                {% csrf_token %}
+		            <div>
+		                 <span>
+	                            <label for="typeAdresse">Type de l'adresse</label>
+                         </span>
+                         <span class="myfirstclass">
+                            {{monformAdresse.typeAdresse}}
+		                 </span>
+		            </div>
+		            <div style="margin-top:15px;">
+		                <span>
+		                 <label>Valeur de l'adresse</label>
+		                </span>
+		                <span class="myfirstclass">
+                        {{monformAdresse.valeur}}
+		                </span>
+		            </div>
+		            <div>
+                        <button type="submit" >OK</button>
+
+						{% for message in messages %}
+							<p>{{message}}</p>
+						{% endfor %}
+		            </div>
+	            </form>
+	</div>
+</main>
+
+
+
+
+
+ {% endblock %}

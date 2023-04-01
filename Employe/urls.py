@@ -9,4 +9,5 @@ urlpatterns = [
     path('Modifier', views.Modifier, name='Modifier'),
     path('<int:employe_id>', views.Supprime_Employe, name='supp'),
     path('Supprimer', views.Supprimer, name='Supprimer'),
+    path('EmployeMenu', views.EmployeMenu, name='EmployeMenu'),
 ]

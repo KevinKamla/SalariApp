@@ -3,7 +3,7 @@ from django.db import models
 # from Salaire.models import Salaire
 from Entreprise.models import Entreprise
 from Prime.models import Prime
-from Indemnites.models import Indemnites
+#from Indemnites.models import Indemnites
 
 
 # Create your models here.
@@ -94,7 +94,7 @@ class Employe(models.Model):
             ('Féminin', 'Féminin'))
 
     identifiantUser = models.ForeignKey(User, null=True, on_delete=models.CASCADE, related_name='employé')
-    # idEntreprise = models.ForeignKey(Entreprise, null=True, on_delete=models.CASCADE, related_name='employé')
+    idEntreprise = models.ForeignKey(Entreprise, null=True, on_delete=models.CASCADE, related_name='employé')
     nomEmploye = models.CharField(max_length=50, null=True)
     prenomEmploye = models.CharField(max_length=50, null=True)
     dateNaissance = models.DateField(null=True)
@@ -109,7 +109,7 @@ class Employe(models.Model):
     salaireNet = models.IntegerField(null=True)
     sexe = models.CharField(max_length=10, null=True, choices=SEXE)
     prime = models.ManyToManyField(Prime)
-    indemnite = models.ManyToManyField(Indemnites)
+    #indemnite = models.ManyToManyField(Indemnites)
 
     def __str__(self):
         return self.nomEmploye

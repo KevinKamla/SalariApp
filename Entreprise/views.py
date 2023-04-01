@@ -1,6 +1,8 @@
 from Tools.scripts import generate_token
 
+from Adresse.models import Adresse
 from Entreprise.formEntreprise import FormulaireEntreprise
+from Entreprise.formModif import FormulaireEntrepriseM
 from Entreprise.models import Entreprise
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -16,6 +18,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from ProjetSalariApp import settings
 
+
 # from .formModif import FormulaireEntrepriseM
 # from .models import Entreprise
 # from .formEntreprise import FormulaireEntreprise
@@ -23,7 +26,7 @@ from lib2to3.fixes.fix_input import context
 
 
 def Valid(request):
-    return render(request, 'Entreprise/Validation.html')
+    return render(request, 'Entreprise/Login/Validation.html')
 
 
 def Erreur(request):
@@ -158,7 +161,7 @@ def Connexion(request):
 
 
 # ====================================================FIN==========================================================
-
+@login_required(login_url='Login')
 def Dash(request):
     return render(request, "Entreprise/Dashboard/Dash.html")
 
@@ -167,7 +170,11 @@ def Dash(request):
 
 # ================================================ Ajout_entreprise ================================================
 
+def EntrepriseMenu(request):
+    return render(request, 'Entreprise/EntrepriseMenu.html')
 
+
+@login_required(login_url='Login')
 def AjoutEntrepise(request):
     monformEntreprise = FormulaireEntreprise()
     user = request.user
@@ -193,11 +200,12 @@ def AjoutEntrepise(request):
     return render(request, 'Entreprise/AjoutEntre.html', context)
 
 
-@login_required
+@login_required(login_url='Login')
 def InfoEntreprise(request):
     user = request.user
     entreprises = Entreprise.objects.get(identifiant=user)
-    context = {'entreprises': entreprises}
+    adresses = Adresse.objects.filter(entreprise = entreprises)
+    context = {'entreprises': entreprises, 'adresses': adresses}
     return render(request, 'Entreprise/InfoEntreprise.html', context)
 
 
@@ -213,7 +221,7 @@ def Entreprisek(request):
     context = {'cle': entreprises}
     return render(request, 'Entreprise/Entreprise.html', context)
 
-
+@login_required(login_url='Login')
 def modifientreprise(request, entreprise_id):
     entreprise = get_object_or_404(Entreprise, id=entreprise_id)
     dic = {'nomEntreprise': entreprise.nomEntreprise,
@@ -232,7 +240,7 @@ def modifientreprise(request, entreprise_id):
         form_em = FormulaireEntrepriseM(request.POST, instance=entreprise)
         if form_em.is_valid():
             form_em.save()
-            return redirect('entreprise')
+            return redirect('infoEntre')
     if request.method == 'GET':
         form_em = FormulaireEntrepriseM(data=dic)
     return render(request, 'Entreprise/modifEntreprise.html', {'modifientreprise': form_em})
@@ -279,6 +287,6 @@ def Aide(request):
 @login_required
 def Finish(request):
     logout(request)
-    return redirect('login')
+    return redirect('Login')
 
 # ==========================================================================================================

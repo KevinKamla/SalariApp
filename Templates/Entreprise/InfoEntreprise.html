@@ -32,6 +32,7 @@ td, th
 
                 <table class="table table_sm">
 <hr> <br>
+                    {% csrf_token %}
                     <tr>
                         <th> Nom</th> <th>  {{entreprises.nomEntreprise}} </th>
                     </tr>
@@ -60,9 +61,11 @@ td, th
                         <th>Forme juridique</th> <th>  {{entreprises.formeJuridique}}</th>
                     </tr>
 
-
-
-
+                    {% for Adresse in adresses %}
+                    <tr>
+                        <th>{{Adresse.typeAdresse}} </th> <th>  {{Adresse.valeur}}</th>
+                    </tr>
+                    {% endfor %}
                 </table>
             </div>
         </div>

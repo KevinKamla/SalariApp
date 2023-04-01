@@ -3,8 +3,11 @@
 /* ------------- ROOT VARIABLE ------------ */
 :root{
     --color-primary: #4858e0;
+    --color-primary-flou: #4858e0c8;
     --color-danger: #05cc37;
+    --color-danger-flou: #05cc37a8;
     --color-red: #ff0000;
+    --color-red-flou: #ff0000a8;
     --color-warning: rgb(255, 162, 0);
     --color-success: #41f1b6;
     --color-white: #fff;
@@ -142,6 +145,10 @@ b{
 
 .danger{
     color: var(--color-danger);
+}
+.sang{
+    color: var(--color-red);
+
 }
 
 .success{
@@ -332,6 +339,16 @@ main .insi > div span{
 
 main .insi > div.donnees span{
     background: var(--color-danger);
+}
+
+.MEA:hover{
+    background: var(--color-danger-flou);
+}
+.MEL:hover{
+    background: var(--color-primary);
+}
+.MEM:hover{
+    background: var(--color-primary-flou);
 }
 
 main .insi > div.info span{

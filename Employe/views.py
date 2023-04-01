@@ -4,6 +4,10 @@ from Employe.models import Employe
 from Entreprise.models import Entreprise
 
 
+def EmployeMenu(request):
+    return render(request, 'Employe/EmployeMenu.html')
+
+
 def Ajoute_Employe(request):
     monformEmploye = FormulaireEmploye()
     user = request.user
@@ -23,9 +27,9 @@ def Ajoute_Employe(request):
 
 def Liste_Employe(request):
     user = request.user
-    Employes = Employe.objects.filter(identifiantUser=user)
+    Employes = Employe.objects.all()
     context2 = {'Employes': Employes}
-    return render(request, 'Employe/Afficher.html', context2)
+    return render(request, 'Employe/AfficheEmploye.html', context2)
 
 
 def modifiemploye(request, employe_id):

@@ -1,10 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block contenu %}
+{% csrf_token %}
+
+    <h2>Liste des indemnités de {{Indemnites.employe}}</h2>
+    <table class="table table_sm">
+        {% for Indemnites in Indemnitess %}
+        <hr> <br>
+        <p>  </p>
+        <li> {{Indemnites.intitule}}</li>
+         {% endfor %}
+    </table>
+ {% endblock %}
